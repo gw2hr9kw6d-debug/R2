@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Daily Mantra Sadhana</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #fbf5e9;
+    --bg-2: #f4e6cf;
+    --card: #fffaf0;
+    --ink: #2a1810;
+    --ink-soft: #6b5444;
+    --muted: #9a8870;
+    --line: #ecdcc1;
+    --saffron: #d9722e;
+    --saffron-deep: #b95a1c;
+    --maroon: #7b2b3a;
+    --gold: #c49a2a;
+    --leaf: #6b8e23;
+    --dim: #c9b89a;
+    --shadow: 0 8px 24px rgba(120, 70, 20, 0.08);
+    --shadow-strong: 0 18px 40px rgba(120, 50, 20, 0.18);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Inter", "Segoe UI", sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(900px 500px at 90% -10%, #f3d9b3 0%, transparent 60%),
+      radial-gradient(700px 400px at 0% 100%, #f0e2c4 0%, transparent 55%),
+      var(--bg);
+    min-height: 100vh;
+    padding: 26px 22px 80px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+
+  /* ── Sanskrit / serif ────────────────────────────── */
+  .skt {
+    font-family: "Cormorant Garamond", "EB Garamond", Georgia, "Iowan Old Style", serif;
+    font-style: italic;
+    color: var(--maroon);
+    font-size: 17px;
+    line-height: 1.55;
+    letter-spacing: 0.2px;
+  }
+
+  /* ── Hero ────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    border-radius: 22px;
+    padding: 22px 26px;
+    color: #fff8e8;
+    background:
+      radial-gradient(700px 320px at 100% 0%, rgba(255, 240, 200, 0.18), transparent 60%),
+      linear-gradient(135deg, #7b2b3a 0%, #b95a1c 55%, #d9722e 100%);
+    box-shadow: var(--shadow-strong);
+    overflow: hidden;
+  }
+  .hero::before {
+    /* decorative yantra hint */
+    content: "";
+    position: absolute; right: -60px; top: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255,220,160,0.18), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 22px;
+    align-items: center;
+    position: relative;
+  }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 2.2px; text-transform: uppercase;
+    opacity: 0.78; margin-bottom: 4px;
+  }
+  .hero h1 {
+    margin: 0 0 4px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 0.3px;
+  }
+  .hero .sub { font-size: 13px; opacity: 0.85; }
+  .pill {
+    background: rgba(0,0,0,0.22);
+    border-radius: 14px;
+    padding: 10px 14px;
+    text-align: center;
+    min-width: 92px;
+  }
+  .pill .v { font-size: 24px; font-weight: 800; line-height: 1; }
+  .pill .k { font-size: 10.5px; opacity: 0.85; letter-spacing: 1.4px; text-transform: uppercase; margin-top: 4px; }
+
+  .progress-line {
+    margin-top: 14px;
+    display: flex; align-items: center; gap: 12px;
+    position: relative;
+  }
+  .progress-bar {
+    flex: 1; height: 8px; border-radius: 999px;
+    background: rgba(0,0,0,0.22);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, #ffe9a8, #ffb35a);
+    box-shadow: 0 0 12px rgba(255, 200, 100, 0.5);
+    transition: width 0.6s cubic-bezier(.2,.8,.2,1);
+  }
+  .progress-text { font-size: 12px; opacity: 0.9; font-weight: 600; }
+
+  /* ── Layout grid ─────────────────────────────────── */
+  .grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 18px;
+    margin-top: 20px;
+  }
+  @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px;
+    box-shadow: var(--shadow);
+  }
+  .card h2 {
+    margin: 0 0 14px;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--ink-soft);
+  }
+  .card h2 .meta { float: right; font-size: 11.5px; color: var(--muted); letter-spacing: 0.8px; }
+
+  /* ── Sadhana steps ───────────────────────────────── */
+  .step {
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    background: linear-gradient(180deg, #fffcf3, #fff7e6);
+  }
+  .step.active {
+    border-color: #ecc78a;
+    box-shadow: 0 8px 22px rgba(217, 114, 46, 0.12);
+    background: linear-gradient(180deg, #fffaee, #fff1d8);
+  }
+  .step.done { background: linear-gradient(180deg, #f4f8ec, #e8f0d6); border-color: #cbdba0; }
+  .step.locked { opacity: 0.55; }
+
+  .step-head {
+    display: grid;
+    grid-template-columns: 36px 1fr auto;
+    gap: 12px;
+    padding: 12px 14px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  .step-num {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--saffron);
+    color: white; font-weight: 800; font-size: 13px;
+    display: grid; place-items: center;
+    box-shadow: 0 2px 6px rgba(217, 114, 46, 0.25);
+  }
+  .step.done .step-num { background: var(--leaf); }
+  .step.locked .step-num { background: var(--dim); }
+  .step-title {
+    font-weight: 700; font-size: 15px; color: var(--ink);
+  }
+  .step-deity {
+    font-size: 12px; color: var(--ink-soft);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+  }
+  .count-badge {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--saffron-deep);
+  }
+  .step.done .count-badge { color: var(--leaf); border-color: #cbdba0; background: #f4f8ec; }
+  .step.done .count-badge::before { content: "✓ "; }
+
+  .step-body {
+    padding: 0 18px 18px;
+    display: none;
+  }
+  .step.active .step-body { display: block; }
+
+  .mantra {
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: #fff7e7;
+    border-left: 3px solid var(--saffron);
+    margin-bottom: 16px;
+  }
+  .mantra .skt { color: var(--maroon); }
+  .mantra .note { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+
+  /* ── Tap counter ────────────────────────────────── */
+  .counter-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .tap-disc {
+    position: relative;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 40% 35%, #fff6dd 0%, #f3d7a0 70%, #d9a55c 100%);
+    box-shadow:
+      0 8px 24px rgba(180, 100, 30, 0.25),
+      inset 0 -6px 14px rgba(180, 100, 30, 0.2),
+      inset 0 4px 10px rgba(255, 255, 220, 0.6);
+    cursor: pointer;
+    transition: transform 0.12s ease;
+  }
+  .tap-disc:active { transform: scale(0.96); }
+  .tap-disc svg.ring {
+    position: absolute; inset: -4px;
+    width: calc(100% + 8px); height: calc(100% + 8px);
+    pointer-events: none;
+  }
+  .tap-disc .face {
+    position: relative;
+    width: 100%; height: 100%;
+    display: grid; place-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  .tap-disc .now {
+    font-size: 44px; font-weight: 800; line-height: 1;
+    color: var(--maroon);
+    font-variant-numeric: tabular-nums;
+  }
+  .tap-disc .of {
+    font-size: 13px; color: var(--ink-soft);
+    margin-top: 4px; letter-spacing: 1px;
+  }
+  .tap-pulse {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .tap-pulse.go { animation: pulse 0.5s ease-out; }
+  @keyframes pulse {
+    0% { opacity: 0.9; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.18); }
+  }
+  .helper-row {
+    display: flex; gap: 12px; align-items: center; font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .link-btn {
+    background: none; border: none; color: var(--saffron-deep);
+    font-weight: 700; cursor: pointer; font-size: 12px;
+    padding: 4px 8px; border-radius: 6px;
+  }
+  .link-btn:hover { background: #fff1d8; }
+
+  /* ── Timer ──────────────────────────────────────── */
+  .timer-disc {
+    position: relative;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #ece9d9 0%, #cdc6a4 80%);
+    display: grid; place-items: center;
+    box-shadow: 0 8px 24px rgba(120, 100, 60, 0.2),
+                inset 0 -6px 14px rgba(100, 80, 40, 0.15);
+  }
+  .timer-disc svg { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); pointer-events: none; }
+  .timer-disc .t { font-size: 38px; font-weight: 800; color: var(--maroon); font-variant-numeric: tabular-nums; }
+  .timer-disc .lbl { font-size: 11px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 1.4px; margin-top: 4px; }
+  .timer-actions { display: flex; gap: 10px; margin-top: 12px; }
+  .timer-actions button {
+    padding: 8px 14px; border-radius: 10px;
+    border: 1px solid var(--line); background: white;
+    font-weight: 700; cursor: pointer; font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .timer-actions .play { background: var(--saffron); color: white; border-color: var(--saffron); }
+  .timer-actions .play:hover { background: var(--saffron-deep); }
+
+  /* ── Side: Mandala / progress ───────────────────── */
+  .mandala-wrap { display: flex; justify-content: center; padding: 4px 0 6px; }
+  .mandala { width: 220px; height: 220px; }
+  .mandala .day-label { font-family: "Cormorant Garamond", Georgia, serif; }
+
+  .stage-card {
+    background: linear-gradient(135deg, #fff5dc, #ffe6c2);
+    border: 1px solid #ecc78a;
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+  .stage-card .name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px; font-weight: 600; color: var(--maroon);
+  }
+  .stage-card .desc { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+  .stage-card .next { font-size: 11px; color: var(--muted); margin-top: 6px; letter-spacing: 0.4px; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .stat {
+    background: #fffaf0;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .stat .v { font-weight: 800; font-size: 17px; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat .k { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 2px; }
+
+  /* ── Milestones ─────────────────────────────────── */
+  .miles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .mile {
+    display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: center;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: #faf2e3;
+    border: 1px solid #ecdcc1;
+  }
+  .mile.locked { opacity: 0.55; }
+  .mile .ic {
+    width: 32px; height: 32px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-size: 16px;
+    background: #fff1d0;
+    border: 1px solid #f0d6a0;
+    filter: grayscale(0.85);
+  }
+  .mile.unlocked .ic {
+    filter: none;
+    background: linear-gradient(135deg, #ffe6a0, #ffc15a);
+    border-color: #f0b047;
+    box-shadow: 0 3px 10px rgba(245, 180, 50, 0.25);
+  }
+  .mile .nm { font-size: 11.5px; font-weight: 700; color: var(--ink); line-height: 1.25; }
+  .mile .dt { font-size: 10.5px; color: var(--muted); margin-top: 1px; }
+
+  /* ── Heatmap (last 40 days) ─────────────────────── */
+  .heat {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 4px;
+    margin-top: 10px;
+  }
+  .hcell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    background: #efe3cd;
+  }
+  .hcell[data-l="1"] { background: #f3cc92; }
+  .hcell[data-l="2"] { background: #ec9f54; }
+  .hcell[data-l="3"] { background: #d9722e; }
+  .hcell[data-l="4"] { background: linear-gradient(135deg, #b95a1c, #7b2b3a); }
+  .hcell.today { box-shadow: 0 0 0 2px var(--gold); }
+
+  /* ── Toast / footer ─────────────────────────────── */
+  .toast-host {
+    position: fixed; top: 22px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; gap: 8px; z-index: 50; pointer-events: none;
+  }
+  .toast {
+    background: #2a1810; color: #fff8e8;
+    padding: 10px 14px; border-radius: 12px;
+    font-weight: 600; font-size: 13px;
+    box-shadow: var(--shadow-strong);
+    animation: tin 0.35s ease, tout 0.45s ease 2.8s forwards;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toast.gold { background: linear-gradient(135deg, #c49a2a, #d9722e); }
+  .toast.deep { background: linear-gradient(135deg, #7b2b3a, #b95a1c); }
+  @keyframes tin { from { transform: translateY(-12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes tout { to { transform: translateY(-12px); opacity: 0; } }
+
+  .footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 22px; gap: 16px;
+  }
+  .quote {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    color: var(--ink-soft); font-size: 14px;
+    flex: 1;
+  }
+  .footer button {
+    background: white; border: 1px solid var(--line);
+    color: var(--ink-soft); padding: 8px 12px;
+    border-radius: 10px; font-weight: 700; font-size: 12px; cursor: pointer;
+  }
+  .footer button:hover { border-color: var(--saffron); color: var(--saffron-deep); }
+  .row-buttons { display: flex; gap: 8px; }
+
+  .complete-banner {
+    display: none;
+    align-items: center; gap: 12px;
+    margin-top: 4px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff1c4, #ffd589);
+    border: 1px solid #ecc78a;
+    color: #6a3a06;
+    font-weight: 700;
+  }
+  .complete-banner.show { display: flex; animation: tin 0.4s cubic-bezier(.2,.8,.2,1); }
+
+  /* ── Mark-complete button (mala mode) ────────────── */
+  .mark-complete-wrap {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px; padding: 8px 0 4px;
+  }
+  .mark-complete-btn {
+    background: linear-gradient(135deg, var(--saffron), var(--saffron-deep));
+    color: #fff8e8;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+    box-shadow: 0 8px 20px rgba(217, 114, 46, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .mark-complete-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(217, 114, 46, 0.35);
+  }
+  .mark-complete-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(217, 114, 46, 0.25);
+  }
+  .mark-complete-btn svg { width: 20px; height: 20px; }
+  .mark-complete-reminder {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ── Weekday streaks ─────────────────────────────── */
+  .weekday-section { margin-top: 18px; }
+  .weekday-pills {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  .weekday-pill {
+    padding: 12px 6px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, #fffcf3, #fff7e6);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    color: inherit;
+  }
+  .weekday-pill:hover { border-color: var(--saffron); transform: translateY(-1px); }
+  .weekday-pill.selected {
+    background: linear-gradient(135deg, var(--saffron), var(--saffron-deep));
+    color: #fff8e8;
+    border-color: var(--saffron-deep);
+    box-shadow: 0 6px 16px rgba(217, 114, 46, 0.28);
+  }
+  .weekday-pill .dow {
+    font-size: 11px; text-transform: uppercase;
+    letter-spacing: 1.2px; opacity: 0.78; font-weight: 700;
+  }
+  .weekday-pill .num {
+    font-size: 22px; font-weight: 800; line-height: 1;
+    margin-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .weekday-pill .lbl {
+    font-size: 9.5px; opacity: 0.7; margin-top: 2px; letter-spacing: 0.5px;
+  }
+
+  .weekday-detail {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: #fff7e7;
+    border-radius: 12px;
+    border-left: 3px solid var(--saffron);
+  }
+  .weekday-detail .header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 12px;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .weekday-detail .day-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600; font-size: 20px;
+    color: var(--maroon); line-height: 1.1;
+  }
+  .weekday-detail .deity {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic; color: var(--ink-soft);
+    font-size: 13px; margin-top: 2px;
+  }
+  .weekday-detail .wk-stats {
+    font-size: 13px; color: var(--ink-soft); text-align: right;
+  }
+  .weekday-detail .wk-stats strong {
+    color: var(--maroon); font-size: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+  .weekday-detail .legend-note {
+    font-size: 11px; color: var(--muted); margin-top: 8px;
+  }
+  .weekday-cells {
+    display: grid;
+    grid-template-columns: repeat(30, 1fr);
+    gap: 3px;
+  }
+  .wcell {
+    aspect-ratio: 1;
+    border-radius: 3px;
+    background: #efe3cd;
+  }
+  .wcell[data-l="1"] { background: #f3cc92; }
+  .wcell[data-l="2"] { background: #ec9f54; }
+  .wcell[data-l="3"] { background: #d9722e; }
+  .wcell[data-l="4"] { background: linear-gradient(135deg, #b95a1c, #7b2b3a); }
+  .wcell.today { box-shadow: 0 0 0 2px var(--gold); }
+  .wcell.future { background: #f6ecd6; opacity: 0.4; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-row">
+      <div>
+        <div class="eyebrow" id="todayDate">Loading…</div>
+        <h1 id="todayTitle">—</h1>
+        <div class="sub" id="todayDeity">—</div>
+      </div>
+      <div class="pill" title="Days completed in this 40-day mandala cycle">
+        <div class="v" id="mandalaNum">0<span style="font-size:14px;opacity:0.7">/40</span></div>
+        <div class="k">Mandala</div>
+      </div>
+      <div class="pill" title="Consecutive days of completed sadhana">
+        <div class="v" id="streakNum">0 🔥</div>
+        <div class="k">Streak</div>
+      </div>
+    </div>
+    <div class="progress-line">
+      <div class="progress-bar"><div class="progress-fill" id="dayProgressFill"></div></div>
+      <div class="progress-text" id="dayProgressText">0 of 0 rounds</div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- LEFT: Today's sadhana -->
+    <section class="card">
+      <h2>Today's Sadhana <span class="meta" id="todayCount"></span></h2>
+      <div id="stepList"></div>
+      <div class="complete-banner" id="completeBanner">
+        <span style="font-size:22px">🕉️</span>
+        <span>Sadhana complete. The day is consecrated.</span>
+      </div>
+    </section>
+
+    <!-- RIGHT: Stage, mandala, milestones, heatmap -->
+    <section class="card">
+      <h2>Stage of Practice</h2>
+      <div class="stage-card">
+        <div class="name" id="stageName">Arambhi</div>
+        <div class="desc" id="stageDesc">—</div>
+        <div class="next" id="stageNext">—</div>
+      </div>
+
+      <div class="mandala-wrap">
+        <svg class="mandala" id="mandala" viewBox="-120 -120 240 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- outer ring, dots, center label injected -->
+        </svg>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="v" id="sDays">0</div><div class="k">Days complete</div></div>
+        <div class="stat"><div class="v" id="sBest">0</div><div class="k">Best streak</div></div>
+        <div class="stat"><div class="v" id="sJapa">0</div><div class="k">Total japa</div></div>
+        <div class="stat"><div class="v" id="sSilent">0</div><div class="k">Silent sits</div></div>
+      </div>
+
+      <h2>Sankalpas (Milestones)</h2>
+      <div class="miles" id="miles"></div>
+
+      <h2 style="margin-top:18px">Last 40 days</h2>
+      <div class="heat" id="heat"></div>
+    </section>
+  </div>
+
+  <!-- Weekday streaks -->
+  <section class="card weekday-section">
+    <h2>Weekday Streaks <span class="meta">consecutive completed sessions per weekday</span></h2>
+    <div class="weekday-pills" id="wkPills"></div>
+    <div class="weekday-detail" id="wkDetail"></div>
+  </section>
+
+  <div class="footer">
+    <div class="quote" id="quote"></div>
+    <div class="row-buttons">
+      <button id="btnUndo" title="Un-check the last step you marked complete">Undo last step</button>
+      <button id="btnExport" title="Download a JSON backup of all progress — save it to Drive weekly">Export backup</button>
+      <button id="btnReset" title="Wipe all stored progress">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-host" id="toastHost"></div>
+
+<script>
+  // ─────────────────────────────────────────────────────
+  //  Mantra data (transcribed from Daily_Mantra_Practice.pdf)
+  // ─────────────────────────────────────────────────────
+  const DAILY_PRE = [
+    {
+      id: "ganesha",
+      title: "Ganesha",
+      deity: "Vinayaka — Remover of Obstacles",
+      mantra: "Vakratunda Mahakaya Suryakoti Samaprabha / Nirvighnam Kuru Me Deva Sarva-Karyeshu Sarvada",
+      count: 3
+    },
+    {
+      id: "shiva",
+      title: "Shiva",
+      deity: "Mahadeva — Rudra Gayatri",
+      mantra: "Om Tatpurushaya Vidmahe Mahadevaya Dhimahi / Tanno Rudrah Prachodayat",
+      count: 11
+    }
+  ];
+
+  // Day-specific overlay (0 = Sunday, 6 = Saturday). Mahamrityunjaya ×108 is handled by DAILY_MAHA
+  // (every day). Wednesday and Thursday get a ×108 japa slot; Hanuman Chalisa added on Tue and Sat.
+  const DAY_MANTRAS = {
+    0: [{
+      id: "sun-aditya", title: "Aditya Hridayam", deity: "Surya — full Sun hymn",
+      mantra: "Aditya Hridayam — chant the full Sun hymn from your separate copy.",
+      count: 1,
+      note: "Use your printed copy of the hymn; tap complete when done."
+    }],
+    1: [
+      { id: "mon-chandra", title: "Chandra Namah", deity: "Moon — calming namah-form",
+        mantra: "Om Chandraya Namah", count: 108 },
+      { id: "mon-maha", title: "Mahamrityunjaya (short)", deity: "Shiva — the death-conqueror",
+        mantra: "Om Tryambakam Yajamahe Sugandhim Pushti-Vardhanam / Urvarukamiva Bandhanan Mrityor Mukshiya Mamritat",
+        count: 11 }
+    ],
+    2: [
+      { id: "tue-hanu", title: "Hanuman Namah", deity: "Anjaneya",
+        mantra: "Om Shri Hanumate Namah", count: 11 },
+      { id: "tue-chalisa", title: "Hanuman Chalisa", deity: "Anjaneya — the forty verses",
+        mantra: "Hanuman Chalisa — chant the full 40 verses.",
+        count: 1,
+        note: "Use your Chalisa text or recite from memory. Tap complete when done." }
+    ],
+    3: [
+      { id: "wed-budha", title: "Mercury Namah", deity: "Budha — clarity of intellect",
+        mantra: "Om Bum Budhaya Namah", count: 108 }
+    ],
+    4: [
+      { id: "thu-guru", title: "Jupiter beej", deity: "Guru graha — wisdom and benevolence",
+        mantra: "Om Gram Greem Graum Sah Gurave Namah", count: 108 },
+      { id: "thu-brhas", title: "Brihaspati shloka", deity: "Guru of the gods",
+        mantra: "Devanam cha Rishinam cha Gurum Kanchana Sannibham / Buddhi-bhutam Tri-lokesham Tam Namami Brihaspatim",
+        count: 3 }
+    ],
+    5: [
+      { id: "fri-devi", title: "Devi shloka", deity: "Mahadevi",
+        mantra: "Sarvabaadhaa Vinirmukto Dhana-Dhaanyah Sutaanvitah / Manushyo Mat-prasaaden Bhavishyati Na Sanshayah",
+        count: 3 }
+    ],
+    6: [
+      { id: "sat-anj", title: "Hanuman Gayatri", deity: "Anjaneya — Vayuputra Gayatri",
+        mantra: "Om Anjaneyaya Vidmahe Vayuputraya Dhimahi / Tanno Hanumat Prachodayat",
+        count: 11 },
+      { id: "sat-shani", title: "Shani shloka", deity: "Shanaishchara",
+        mantra: "Nilanjana Samabhasam Raviputram Yamagrajam / Chaya-Martanda Sambhutam Tam Namami Shaishcharam",
+        count: 3 },
+      { id: "sat-chalisa", title: "Hanuman Chalisa", deity: "Anjaneya — the forty verses",
+        mantra: "Hanuman Chalisa — chant the full 40 verses.",
+        count: 1,
+        note: "Use your Chalisa text or recite from memory. Tap complete when done." }
+    ]
+  };
+
+  const NAVAGRAHA = {
+    id: "navagraha",
+    title: "Navagraha",
+    deity: "Nine celestial influences",
+    mantra: "Adityaya cha Somaya Mangalaya Budhaya cha / Guru Shukra Shanibhyascha Rahave Ketave Namah",
+    count: 3
+  };
+
+  const SILENCE = {
+    id: "silence",
+    title: "Mauna — Silence",
+    deity: "Sit quietly; let the mantras settle",
+    mantra: "No words. Just breath, and the inner echo of what was chanted.",
+    duration: 180, // default 3 minutes; overridden by SILENCE_BY_DAY
+    type: "timer"
+  };
+
+  // Mahamrityunjaya ×108 — a daily Shiva mala japa done on the 108-bead japa mala.
+  const DAILY_MAHA = {
+    id: "daily-maha",
+    title: "Mahamrityunjaya",
+    deity: "Shiva — daily mala japa (108)",
+    mantra: "Om Tryambakam Yajamahe Sugandhim Pushti-Vardhanam / Urvarukamiva Bandhanan Mrityor Mukshiya Mamritat",
+    count: 108
+  };
+
+  // Silence duration per weekday (seconds). Some days run longer for depth.
+  const SILENCE_BY_DAY = {
+    0: 300,  // Sunday    — 5 min
+    1: 180,  // Monday    — 3 min
+    2: 180,  // Tuesday   — 3 min
+    3: 300,  // Wednesday — 5 min
+    4: 180,  // Thursday  — 3 min
+    5: 600,  // Friday    — 10 min (deeper silence)
+    6: 180   // Saturday  — 3 min
+  };
+
+  const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const DAY_DEITY_THEME = {
+    0: "Surya — the Sun",
+    1: "Chandra + Shiva — the Moon and the Auspicious",
+    2: "Hanuman — courage and devotion",
+    3: "Budha — clarity of intellect",
+    4: "Guru — wisdom and benevolence",
+    5: "Devi — the great Mother",
+    6: "Hanuman + Shani — strength and discipline"
+  };
+
+  function buildToday() {
+    const dow = new Date().getDay();
+    const silenceForToday = { ...SILENCE, duration: SILENCE_BY_DAY[dow] || 180 };
+    return [
+      ...DAILY_PRE,
+      DAILY_MAHA,
+      ...DAY_MANTRAS[dow],
+      NAVAGRAHA,
+      silenceForToday
+    ];
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Stages
+  // ─────────────────────────────────────────────────────
+  const STAGES = [
+    { min: 0,   name: "Arambhi",        desc: "The Beginner. The first step is itself sacred." },
+    { min: 7,   name: "Sadhaka",        desc: "The Practitioner. A week of unbroken effort." },
+    { min: 21,  name: "Nishtha",        desc: "Steady. The practice has taken root." },
+    { min: 40,  name: "Mandali",        desc: "One mandala complete. Tradition recognises you." },
+    { min: 108, name: "Anushthani",     desc: "Of the vow. A serious commitment, kept." },
+    { min: 365, name: "Brahmanishtha",  desc: "Ever-anchored. A year given to the practice." }
+  ];
+
+  function stageFor(days) {
+    let cur = STAGES[0], next = null;
+    for (let i = 0; i < STAGES.length; i++) {
+      if (days >= STAGES[i].min) cur = STAGES[i];
+      else { next = STAGES[i]; break; }
+    }
+    return { cur, next };
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Milestones (Sankalpas)
+  // ─────────────────────────────────────────────────────
+  const MILES = [
+    { id: "first",    ic: "🪔", nm: "Pratham Pada — first step",      test: s => s.totalDays >= 1,   hint: "Complete your first sadhana." },
+    { id: "week",     ic: "🌿", nm: "Saptaha — 7 day streak",          test: s => s.bestStreak >= 7,  hint: "Seven days of unbroken practice." },
+    { id: "trayodash",ic: "🌸", nm: "Trayodash — 21 day streak",       test: s => s.bestStreak >= 21, hint: "Twenty-one days. A habit is forming." },
+    { id: "mandala",  ic: "🪷", nm: "Mandala Purti — 40 days",         test: s => s.bestStreak >= 40, hint: "One full mandala. A traditional sankalpa fulfilled." },
+    { id: "anush",    ic: "🕉️", nm: "Anushthana — 108 days",           test: s => s.bestStreak >= 108,hint: "One hundred and eight. The vow is established." },
+    { id: "year",     ic: "👑", nm: "Samvatsara — 365 days",           test: s => s.bestStreak >= 365,hint: "A year of sadhana, day after day." },
+    { id: "allDays",  ic: "🌗", nm: "Saptavāra — all 7 weekdays",      test: s => Object.keys(s.daysOfWeekDone||{}).length >= 7, hint: "Complete the practice on every day of the week at least once." },
+    { id: "silent21", ic: "🤫", nm: "Mauna 21 — 21 silent sits",       test: s => s.silentSits >= 21, hint: "Complete the silent sit twenty-one times." },
+    { id: "japa1k",   ic: "📿", nm: "Sahasra Japa — 1,000 reps",       test: s => s.totalJapa >= 1000, hint: "Tap a thousand japa in total." },
+    { id: "japa10k",  ic: "💎", nm: "Ayuta Japa — 10,000 reps",         test: s => s.totalJapa >= 10000, hint: "Ten thousand japa across your practice." },
+    { id: "japa100k", ic: "🕉️", nm: "Lakha Japa — 100,000 reps",         test: s => s.totalJapa >= 100000, hint: "The classical lakh — a serious sadhaka's threshold." }
+  ];
+
+  const QUOTES = [
+    "चरैवेति चरैवेति — walk on, walk on.",
+    "Yogah karmasu kaushalam — yoga is skill in action.",
+    "Sa esha samrad asya atmanah — this Self alone is the sovereign.",
+    "Manaḥ eva manuṣyāṇāṁ kāraṇaṁ bandha-mokṣayoḥ — the mind alone is the cause of bondage and freedom.",
+    "Karmaṇy-evādhikāras te mā phaleṣu kadācana — your right is to the action, not to its fruits.",
+    "Tat tvam asi — that thou art.",
+    "Aham brahmāsmi — I am the Brahman.",
+    "Sarvam khalv-idam brahma — all this, truly, is Brahman.",
+    "Satyameva jayate — truth alone triumphs.",
+    "Anu-dinaṁ sādhanā eva siddhiḥ — daily practice itself is attainment."
+  ];
+
+  // ─────────────────────────────────────────────────────
+  //  Storage
+  // ─────────────────────────────────────────────────────
+  const STORE_KEY = "mantra_sadhana_v1";
+  function defaults() {
+    return {
+      todayKey: null,
+      todayProgress: {},          // stepId -> count (or seconds for silence)
+      todayDoneSteps: {},         // stepId -> true
+      todayComplete: false,
+      streak: 0,
+      bestStreak: 0,
+      lastCompleteDay: null,
+      totalDays: 0,
+      totalJapa: 0,
+      silentSits: 0,
+      daysOfWeekDone: {},         // 0..6 -> true (any day completed)
+      history: {},                // dateKey -> { complete, ratio (0..1) }
+      unlocked: {},               // milestoneId -> true
+      lastTap: null,              // legacy (tap-counter era)
+      lastCompletedStep: null     // {id, japa, markedDayComplete} — for step-level undo
+    };
+  }
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) return Object.assign(defaults(), JSON.parse(raw));
+    } catch(e){}
+    return defaults();
+  }
+  function save() { localStorage.setItem(STORE_KEY, JSON.stringify(state)); }
+
+  function dateKey(d) {
+    d = d || new Date();
+    return d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+  }
+  function dayDiff(a, b) {
+    const [ay,am,ad] = a.split("-").map(Number);
+    const [by,bm,bd] = b.split("-").map(Number);
+    return Math.round((new Date(by,bm-1,bd) - new Date(ay,am-1,ad)) / 86400000);
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  State & rollover
+  // ─────────────────────────────────────────────────────
+  let state = load();
+  let todaySteps = buildToday();
+  let selectedWeekday = new Date().getDay(); // for weekday-streak panel
+
+  function rolloverIfNeeded() {
+    const today = dateKey();
+    if (state.todayKey !== today) {
+      // archive yesterday into history
+      if (state.todayKey) {
+        const doneCount = Object.keys(state.todayDoneSteps).length;
+        const total = (state._lastDayStepCount) || doneCount;
+        state.history[state.todayKey] = {
+          complete: !!state.todayComplete,
+          ratio: total > 0 ? doneCount/total : 0
+        };
+      }
+      state.todayKey = today;
+      state.todayProgress = {};
+      state.todayDoneSteps = {};
+      state.todayComplete = false;
+      state.lastTap = null;
+      todaySteps = buildToday();
+      state._lastDayStepCount = todaySteps.length;
+      save();
+    }
+  }
+  rolloverIfNeeded();
+  state._lastDayStepCount = todaySteps.length;
+
+  // ─────────────────────────────────────────────────────
+  //  Rendering
+  // ─────────────────────────────────────────────────────
+  const $ = id => document.getElementById(id);
+  const stepListEl = $("stepList");
+  const milesEl = $("miles");
+  const heatEl = $("heat");
+  const mandalaEl = $("mandala");
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"})[c]);
+  }
+  function mantraHtml(s) {
+    return escapeHtml(s).replace(/\s*\/\s*/g, "<br>");
+  }
+  function fmtTime(sec) {
+    const m = Math.floor(sec/60), s = sec%60;
+    return m + ":" + String(s).padStart(2,"0");
+  }
+
+  // Active step = first not-done step
+  function activeStepIndex() {
+    return todaySteps.findIndex(s => !state.todayDoneSteps[s.id]);
+  }
+
+  // ── Weekday helpers ──────────────────────────────
+  function isDayComplete(k) {
+    if (k === state.todayKey) return !!state.todayComplete;
+    const h = state.history[k];
+    return !!(h && h.complete);
+  }
+  function dayRatio(k) {
+    if (k === state.todayKey) {
+      const total = state._lastDayStepCount || todaySteps.length || 1;
+      return Math.min(1, Object.keys(state.todayDoneSteps).length / total);
+    }
+    const h = state.history[k];
+    return h ? (h.ratio || 0) : 0;
+  }
+  function weekdayOccurrences(weekday, limit) {
+    // Returns last `limit` dates (yyyy-mm-dd) matching weekday, newest first
+    const today = new Date();
+    let d = new Date(today);
+    while (d.getDay() !== weekday) d.setDate(d.getDate() - 1);
+    const out = [];
+    for (let i = 0; i < limit; i++) {
+      out.push(dateKey(d));
+      d.setDate(d.getDate() - 7);
+    }
+    return out;
+  }
+  function weekdayStats(weekday) {
+    const occ = weekdayOccurrences(weekday, 60);
+    // If today is this weekday and not yet complete, don't count it as a missed week
+    let startIdx = 0;
+    if (occ[0] === state.todayKey && !state.todayComplete) startIdx = 1;
+    let current = 0, inStreak = true, best = 0, run = 0;
+    for (let i = startIdx; i < occ.length; i++) {
+      if (isDayComplete(occ[i])) {
+        if (inStreak) current++;
+        run++;
+        if (run > best) best = run;
+      } else {
+        inStreak = false;
+        run = 0;
+      }
+    }
+    const last30 = occ.slice(0, 30);
+    const completed30 = last30.filter(isDayComplete).length;
+    return { current, best, completed30, total30: last30.length };
+  }
+
+  function renderWeekdays() {
+    const pillsEl = $("wkPills");
+    const detailEl = $("wkDetail");
+    const todayDow = new Date().getDay();
+
+    pillsEl.innerHTML = "";
+    for (let dow = 0; dow < 7; dow++) {
+      const s = weekdayStats(dow);
+      const pill = document.createElement("button");
+      pill.className = "weekday-pill" + (dow === selectedWeekday ? " selected" : "");
+      const lbl = s.current === 1 ? "week" : "weeks";
+      pill.innerHTML = `<div class="dow">${DAY_NAMES[dow].slice(0,3)}</div>
+                        <div class="num">${s.current}</div>
+                        <div class="lbl">${lbl}</div>`;
+      pill.title = DAY_NAMES[dow] + " — current " + s.current + ", best " + s.best + ", " + s.completed30 + "/" + s.total30 + " in last 30";
+      pill.addEventListener("click", () => {
+        selectedWeekday = dow;
+        renderWeekdays();
+      });
+      pillsEl.appendChild(pill);
+    }
+
+    const s = weekdayStats(selectedWeekday);
+    const occ = weekdayOccurrences(selectedWeekday, 30); // newest first
+    const cells = occ.slice().reverse();                 // oldest -> newest for display
+
+    detailEl.innerHTML = `
+      <div class="header">
+        <div>
+          <div class="day-name">${DAY_NAMES[selectedWeekday]}</div>
+          <div class="deity">${DAY_DEITY_THEME[selectedWeekday]}</div>
+        </div>
+        <div class="wk-stats">
+          <strong>${s.current}</strong> current · best <strong>${s.best}</strong><br>
+          <strong>${s.completed30}/${s.total30}</strong> of last 30 ${DAY_NAMES[selectedWeekday]}s
+        </div>
+      </div>
+      <div class="weekday-cells" id="wkCells"></div>
+      <div class="legend-note">Each cell is one ${DAY_NAMES[selectedWeekday]} — oldest on the left, most recent on the right. Saffron intensity reflects how complete that day's sadhana was.</div>
+    `;
+
+    const cellsHost = detailEl.querySelector("#wkCells");
+    cells.forEach(k => {
+      const c = document.createElement("div");
+      c.className = "wcell" + (k === state.todayKey ? " today" : "");
+      const r = dayRatio(k);
+      c.dataset.l = Math.min(4, Math.round(r * 4));
+      const status = isDayComplete(k) ? "complete"
+                   : r > 0 ? "partial (" + Math.round(r*100) + "%)"
+                   : "none";
+      c.title = k + " — " + status;
+      cellsHost.appendChild(c);
+    });
+  }
+
+  function render() {
+    const now = new Date();
+    const dow = now.getDay();
+    $("todayDate").textContent = DAY_NAMES[dow] + " · " + now.toLocaleDateString(undefined, { month:"long", day:"numeric" });
+    $("todayTitle").textContent = "Daily Mantra Sadhana";
+    $("todayDeity").textContent = "Today: " + DAY_DEITY_THEME[dow];
+
+    // streak & mandala
+    $("streakNum").innerHTML = state.streak + " 🔥";
+    // Mandala day: 1..40, then wraps back to 1 (streak 40 shows a full mandala, streak 41 starts a new one)
+    const mandalaDay = state.streak === 0 ? 0 : ((state.streak - 1) % 40) + 1;
+    $("mandalaNum").innerHTML = mandalaDay + '<span style="font-size:14px;opacity:0.7">/40</span>';
+
+    // day progress
+    const doneSteps = Object.keys(state.todayDoneSteps).length;
+    const totalSteps = todaySteps.length;
+    $("dayProgressFill").style.width = (totalSteps ? Math.round(doneSteps/totalSteps*100) : 0) + "%";
+    $("dayProgressText").textContent = doneSteps + " of " + totalSteps + " rounds";
+    $("todayCount").textContent = totalSteps + " rounds";
+
+    // step list
+    const activeIdx = activeStepIndex();
+    stepListEl.innerHTML = "";
+    todaySteps.forEach((s, i) => {
+      const isDone = !!state.todayDoneSteps[s.id];
+      const isActive = !isDone && i === activeIdx;
+      const cls = isDone ? "done" : (isActive ? "active" : "locked");
+
+      const wrap = document.createElement("div");
+      wrap.className = "step " + cls;
+
+      const head = document.createElement("div");
+      head.className = "step-head";
+      const countLbl = s.type === "timer"
+        ? (s.duration/60) + " min"
+        : "× " + s.count;
+      head.innerHTML = `
+        <div class="step-num">${i+1}</div>
+        <div>
+          <div class="step-title">${escapeHtml(s.title)}</div>
+          <div class="step-deity">${escapeHtml(s.deity)}</div>
+        </div>
+        <div class="count-badge">${countLbl}</div>
+      `;
+      wrap.appendChild(head);
+
+      if (isActive) {
+        const body = document.createElement("div");
+        body.className = "step-body";
+
+        const mantraBox = document.createElement("div");
+        mantraBox.className = "mantra";
+        mantraBox.innerHTML = `<div class="skt">${mantraHtml(s.mantra)}</div>` +
+          (s.note ? `<div class="note">${escapeHtml(s.note)}</div>` : "");
+        body.appendChild(mantraBox);
+
+        if (s.type === "timer") {
+          body.appendChild(buildTimerUI(s));
+        } else {
+          body.appendChild(buildCounterUI(s));
+        }
+        wrap.appendChild(body);
+      }
+
+      stepListEl.appendChild(wrap);
+    });
+
+    $("completeBanner").classList.toggle("show", state.todayComplete);
+
+    // Stage
+    const { cur, next } = stageFor(state.bestStreak);
+    $("stageName").textContent = cur.name;
+    $("stageDesc").textContent = cur.desc;
+    $("stageNext").textContent = next
+      ? "Next: " + next.name + " at day " + next.min + " (you're at best streak " + state.bestStreak + ")"
+      : "You have reached the final stage. The practice continues.";
+
+    // Stats
+    $("sDays").textContent = state.totalDays;
+    $("sBest").textContent = state.bestStreak;
+    $("sJapa").textContent = state.totalJapa.toLocaleString();
+    $("sSilent").textContent = state.silentSits;
+
+    // Mandala SVG
+    renderMandala(mandalaDay, state.streak);
+
+    // Milestones
+    milesEl.innerHTML = "";
+    MILES.forEach(m => {
+      const unlocked = m.test(state) || state.unlocked[m.id];
+      if (unlocked) state.unlocked[m.id] = true;
+      const div = document.createElement("div");
+      div.className = "mile " + (unlocked ? "unlocked" : "locked");
+      div.title = unlocked ? (m.nm + " — earned") : m.hint;
+      div.innerHTML = `<div class="ic">${m.ic}</div>
+                       <div><div class="nm">${m.nm}</div><div class="dt">${escapeHtml(m.hint)}</div></div>`;
+      milesEl.appendChild(div);
+    });
+
+    // Heatmap — last 40 days
+    heatEl.innerHTML = "";
+    const today = new Date();
+    const todayK = dateKey(today);
+    for (let i = 39; i >= 0; i--) {
+      const d = new Date(today); d.setDate(today.getDate() - i);
+      const k = dateKey(d);
+      let level = 0;
+      if (k === todayK) {
+        const total = todaySteps.length || 1;
+        level = Math.min(4, Math.round(doneSteps / total * 4));
+      } else if (state.history[k]) {
+        const h = state.history[k];
+        level = Math.min(4, Math.round((h.ratio || 0) * 4));
+      }
+      const c = document.createElement("div");
+      c.className = "hcell" + (k === todayK ? " today" : "");
+      c.dataset.l = level;
+      c.title = k + (level === 0 ? " — no activity" : " — " + (level*25) + "%+ complete");
+      heatEl.appendChild(c);
+    }
+
+    // quote
+    const qIdx = (state.totalDays + dow) % QUOTES.length;
+    $("quote").textContent = "“" + QUOTES[qIdx] + "”";
+
+    // weekday streaks
+    renderWeekdays();
+
+    save();
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Mandala SVG
+  // ─────────────────────────────────────────────────────
+  function renderMandala(currentDay, totalStreak) {
+    const svg = mandalaEl;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const NS = "http://www.w3.org/2000/svg";
+
+    // background circles
+    const bg = document.createElementNS(NS, "circle");
+    bg.setAttribute("cx", 0); bg.setAttribute("cy", 0); bg.setAttribute("r", 96);
+    bg.setAttribute("fill", "none"); bg.setAttribute("stroke", "#ecdcc1"); bg.setAttribute("stroke-width", "1");
+    svg.appendChild(bg);
+
+    // 8 inner petals as light ornament
+    for (let i = 0; i < 8; i++) {
+      const a = (i / 8) * Math.PI * 2;
+      const x = Math.cos(a) * 50, y = Math.sin(a) * 50;
+      const p = document.createElementNS(NS, "circle");
+      p.setAttribute("cx", x.toFixed(2)); p.setAttribute("cy", y.toFixed(2));
+      p.setAttribute("r", 22); p.setAttribute("fill", "none");
+      p.setAttribute("stroke", "#f3d8a8"); p.setAttribute("stroke-width", "1");
+      svg.appendChild(p);
+    }
+
+    // 40 dots on the ring
+    for (let i = 0; i < 40; i++) {
+      const a = (i / 40) * Math.PI * 2 - Math.PI/2;
+      const x = Math.cos(a) * 96, y = Math.sin(a) * 96;
+      const dot = document.createElementNS(NS, "circle");
+      dot.setAttribute("cx", x.toFixed(2)); dot.setAttribute("cy", y.toFixed(2));
+      dot.setAttribute("r", 4);
+      const filled = i < currentDay;
+      dot.setAttribute("fill", filled ? "#d9722e" : "#ecdcc1");
+      if (filled) dot.setAttribute("filter", "url(#g)");
+      if (i === currentDay) {
+        dot.setAttribute("fill", "#c49a2a");
+        dot.setAttribute("r", 6);
+      }
+      svg.appendChild(dot);
+    }
+
+    // center label
+    const t1 = document.createElementNS(NS, "text");
+    t1.setAttribute("x", 0); t1.setAttribute("y", -4);
+    t1.setAttribute("text-anchor", "middle");
+    t1.setAttribute("font-family", "Cormorant Garamond, Georgia, serif");
+    t1.setAttribute("font-size", "30");
+    t1.setAttribute("font-weight", "600");
+    t1.setAttribute("fill", "#7b2b3a");
+    t1.textContent = currentDay;
+    svg.appendChild(t1);
+
+    const t2 = document.createElementNS(NS, "text");
+    t2.setAttribute("x", 0); t2.setAttribute("y", 16);
+    t2.setAttribute("text-anchor", "middle");
+    t2.setAttribute("font-size", "9");
+    t2.setAttribute("letter-spacing", "1.4");
+    t2.setAttribute("fill", "#9a8870");
+    t2.textContent = "OF 40";
+    svg.appendChild(t2);
+
+    const t3 = document.createElementNS(NS, "text");
+    t3.setAttribute("x", 0); t3.setAttribute("y", 30);
+    t3.setAttribute("text-anchor", "middle");
+    t3.setAttribute("font-size", "9");
+    t3.setAttribute("fill", "#9a8870");
+    t3.textContent = "streak " + totalStreak;
+    svg.appendChild(t3);
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Mark-complete UI (mala mode — no counting in-app)
+  // ─────────────────────────────────────────────────────
+  function buildCounterUI(step) {
+    const wrap = document.createElement("div");
+    wrap.className = "mark-complete-wrap";
+
+    const btn = document.createElement("button");
+    btn.className = "mark-complete-btn";
+    btn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="5 12 10 17 19 7"/>
+      </svg>
+      <span>Mark complete</span>
+    `;
+    btn.addEventListener("click", () => {
+      completeStep(step);
+    });
+    wrap.appendChild(btn);
+
+    const reminder = document.createElement("div");
+    reminder.className = "mark-complete-reminder";
+    reminder.textContent = "Tap when the round is complete.";
+    wrap.appendChild(reminder);
+
+    return wrap;
+  }
+
+  function tap(step, disc, face, fgRing, pulse, circ) {
+    const cur = (state.todayProgress[step.id] || 0) + 1;
+    state.todayProgress[step.id] = cur;
+    state.totalJapa += 1;
+    state.lastTap = { stepId: step.id, time: Date.now() };
+
+    // update face count
+    face.querySelector(".now").textContent = cur;
+    fgRing.setAttribute("stroke-dashoffset", (circ * (1 - cur/step.count)).toFixed(2));
+    pulse.classList.remove("go"); void pulse.offsetWidth; pulse.classList.add("go");
+
+    if (cur >= step.count) {
+      // mark step complete
+      setTimeout(() => completeStep(step), 200);
+    }
+    save();
+  }
+
+  function completeStep(step) {
+    if (state.todayDoneSteps[step.id]) return;
+    state.todayDoneSteps[step.id] = true;
+
+    // Mala mode: add the prescribed count to total japa (timer steps don't add japa)
+    const japaAdded = step.type === "timer" ? 0 : (step.count || 0);
+    state.totalJapa += japaAdded;
+
+    // Track for step-level undo
+    state.lastCompletedStep = { id: step.id, japa: japaAdded, markedDayComplete: false };
+
+    toast("✓ " + step.title + " — round complete", "deep");
+
+    // check if entire sadhana is complete
+    const allDone = todaySteps.every(s => state.todayDoneSteps[s.id]);
+    if (allDone && !state.todayComplete) {
+      state.todayComplete = true;
+      state.lastCompletedStep.markedDayComplete = true;
+      const today = state.todayKey;
+      const dow = new Date().getDay();
+      state.daysOfWeekDone[dow] = true;
+
+      // streak handling
+      if (state.lastCompleteDay && dayDiff(state.lastCompleteDay, today) === 1) {
+        state.streak += 1;
+      } else {
+        state.streak = 1;
+      }
+      state.lastCompleteDay = today;
+      const prevBest = state.bestStreak;
+      state.bestStreak = Math.max(state.bestStreak, state.streak);
+      state.totalDays += 1;
+
+      toast("🕉️ Today's sadhana is complete.", "gold");
+
+      // stage advancement (only if best streak actually crossed a threshold)
+      if (state.bestStreak > prevBest) {
+        const before = stageFor(prevBest).cur.name;
+        const after  = stageFor(state.bestStreak).cur.name;
+        if (before !== after) {
+          toast("New stage: " + after, "gold");
+        }
+      }
+    }
+
+    checkNewMilestones();
+    render();
+  }
+
+  function checkNewMilestones() {
+    MILES.forEach(m => {
+      if (!state.unlocked[m.id] && m.test(state)) {
+        state.unlocked[m.id] = true;
+        toast("🏵️ Sankalpa fulfilled — " + m.nm, "gold");
+      }
+    });
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Timer UI (silence)
+  // ─────────────────────────────────────────────────────
+  let timerId = null;
+  function buildTimerUI(step) {
+    const wrap = document.createElement("div");
+    wrap.className = "counter-wrap";
+
+    const disc = document.createElement("div");
+    disc.className = "timer-disc";
+
+    const NS = "http://www.w3.org/2000/svg";
+    const ring = document.createElementNS(NS, "svg");
+    ring.setAttribute("viewBox", "0 0 100 100");
+    const circ = 2 * Math.PI * 46;
+    const bgRing = document.createElementNS(NS, "circle");
+    bgRing.setAttribute("cx", 50); bgRing.setAttribute("cy", 50); bgRing.setAttribute("r", 46);
+    bgRing.setAttribute("stroke", "#d3c69b"); bgRing.setAttribute("stroke-width", "3");
+    bgRing.setAttribute("fill", "none");
+    ring.appendChild(bgRing);
+    const fgRing = document.createElementNS(NS, "circle");
+    fgRing.setAttribute("cx", 50); fgRing.setAttribute("cy", 50); fgRing.setAttribute("r", 46);
+    fgRing.setAttribute("stroke", "#7b2b3a"); fgRing.setAttribute("stroke-width", "3.5");
+    fgRing.setAttribute("fill", "none"); fgRing.setAttribute("stroke-linecap", "round");
+    fgRing.setAttribute("stroke-dasharray", circ.toFixed(2));
+    fgRing.setAttribute("transform", "rotate(-90 50 50)");
+    fgRing.style.transition = "stroke-dashoffset 0.6s linear";
+    ring.appendChild(fgRing);
+    disc.appendChild(ring);
+
+    const cur = state.todayProgress[step.id] || 0;
+    const tEl = document.createElement("div");
+    tEl.style.position = "relative";
+    tEl.style.textAlign = "center";
+    tEl.innerHTML = `<div class="t">${fmtTime(Math.max(0, step.duration - cur))}</div><div class="lbl">silence</div>`;
+    disc.appendChild(tEl);
+
+    fgRing.setAttribute("stroke-dashoffset", (circ * (1 - cur/step.duration)).toFixed(2));
+
+    wrap.appendChild(disc);
+
+    const actions = document.createElement("div");
+    actions.className = "timer-actions";
+    actions.innerHTML = `
+      <button class="play" data-act="play">▶ Start 3-min sit</button>
+      <button data-act="done">Mark complete</button>
+    `;
+    let elapsed = state.todayProgress[step.id] || 0;
+    let running = false;
+
+    actions.querySelector('[data-act="play"]').addEventListener("click", function() {
+      if (running) {
+        clearInterval(timerId); running = false;
+        this.textContent = "▶ Resume";
+        return;
+      }
+      running = true;
+      this.textContent = "⏸ Pause";
+      timerId = setInterval(() => {
+        elapsed += 1;
+        state.todayProgress[step.id] = elapsed;
+        tEl.querySelector(".t").textContent = fmtTime(Math.max(0, step.duration - elapsed));
+        fgRing.setAttribute("stroke-dashoffset", (circ * (1 - Math.min(1, elapsed/step.duration))).toFixed(2));
+        if (elapsed >= step.duration) {
+          clearInterval(timerId); running = false;
+          state.silentSits += 1;
+          completeStep(step);
+        }
+      }, 1000);
+    });
+    actions.querySelector('[data-act="done"]').addEventListener("click", () => {
+      if (running) { clearInterval(timerId); running = false; }
+      state.todayProgress[step.id] = step.duration;
+      state.silentSits += 1;
+      completeStep(step);
+    });
+
+    wrap.appendChild(actions);
+    return wrap;
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Toast
+  // ─────────────────────────────────────────────────────
+  function toast(msg, kind) {
+    const host = $("toastHost");
+    const t = document.createElement("div");
+    t.className = "toast" + (kind ? " " + kind : "");
+    t.textContent = msg;
+    host.appendChild(t);
+    setTimeout(() => t.remove(), 3300);
+  }
+
+  // ─────────────────────────────────────────────────────
+  //  Buttons
+  // ─────────────────────────────────────────────────────
+  $("btnUndo").addEventListener("click", () => {
+    if (!state.lastCompletedStep) { toast("Nothing to undo."); return; }
+    const { id, japa, markedDayComplete } = state.lastCompletedStep;
+
+    // Reverse the step completion
+    delete state.todayDoneSteps[id];
+    state.totalJapa = Math.max(0, state.totalJapa - (japa || 0));
+    if (id === "silence") state.silentSits = Math.max(0, state.silentSits - 1);
+
+    // If this step's completion had also completed the day, roll that back too
+    if (markedDayComplete) {
+      state.todayComplete = false;
+      state.streak = Math.max(0, state.streak - 1);
+      state.totalDays = Math.max(0, state.totalDays - 1);
+      // Note: bestStreak and unlocked sankalpas remain — historical achievements
+    }
+
+    state.lastCompletedStep = null;
+    render();
+    toast("Undone — step re-opened.");
+  });
+
+  $("btnExport").addEventListener("click", () => {
+    try {
+      const payload = {
+        _format: "mantra-sadhana-backup",
+        _version: 1,
+        _exportedAt: new Date().toISOString(),
+        state: state
+      };
+      const json = JSON.stringify(payload, null, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 10);
+      a.href = url;
+      a.download = "mantra-sadhana-backup-" + stamp + ".json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1500);
+      toast("Backup downloaded — save it to Drive", "deep");
+    } catch (e) {
+      toast("Backup failed: " + (e.message || e), "deep");
+    }
+  });
+
+  $("btnReset").addEventListener("click", () => {
+    if (confirm("Reset all sadhana progress, streaks, history, and milestones? This cannot be undone.")) {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+      localStorage.removeItem(STORE_KEY);
+      state = load();
+      rolloverIfNeeded();
+      todaySteps = buildToday();
+      state._lastDayStepCount = todaySteps.length;
+      render();
+      toast("Reset complete. A new beginning.", "deep");
+    }
+  });
+
+  // Initial paint
+  render();
+</script>
+</body>
+</html>
